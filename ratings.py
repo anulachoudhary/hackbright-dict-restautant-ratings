@@ -30,6 +30,11 @@ def sort_and_print():
     """placeholder"""
 
     unsorted_dict = txt_to_dictionary(filename)
+    user_restaurant = raw_input("Enter a restaurant: ")
+    user_restaurant = user_restaurant.capitalize()
+    user_rating = raw_input("Enter your rating: ")
+    unsorted_dict[user_restaurant] = user_rating
+
     list_of_restaurants = sorted(unsorted_dict.items())
 
     for restaurant in list_of_restaurants:
