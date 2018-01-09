@@ -8,12 +8,14 @@ import sys
 # add to dictionary
 # use .items + sorted and print
 
-def sort_ratings(text_file):  #change name
+filename = sys.argv[1]
+
+def txt_to_dictionary(filename):
     """organizes restaurant names and ratings
     input: txt file
-    returns: """
+    returns: dictionary"""
 
-    with open(text_file) as input_file:
+    with open(filename) as input_file:
 
         restaurant_rating = {}
         for line in input_file:
@@ -23,11 +25,14 @@ def sort_ratings(text_file):  #change name
 
     return restaurant_rating
 
-sorted_ratings = sort_ratings("scores.txt") # goal:sys.argv
 
-# make this into a function that calls the other
-list_of_restaurants = sorted(sorted_ratings.items())
+def sort_and_print():
+    """placeholder"""
 
-for restaurant in list_of_restaurants:
-    print "{} is rated at {}.".format(restaurant[0], restaurant[1])
+    unsorted_dict = txt_to_dictionary(filename)
+    list_of_restaurants = sorted(unsorted_dict.items())
 
+    for restaurant in list_of_restaurants:
+        print "{} is rated at {}".format(restaurant[0], restaurant[1])
+
+sort_and_print()
